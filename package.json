@@ -1,0 +1,15 @@
+{
+  "name": "fstest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^10.10.0"
+  },
+  "scripts": {
+    "cypress: open": "./node_modules/.bin/cypress open",
+    "cypress: run": "./node_modules/.bin/cypress run --spec ** / *. spec.js"
+  }
+}
