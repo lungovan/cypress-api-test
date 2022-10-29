@@ -14,14 +14,13 @@ describe('LOGIN USER API', () => {
                     "password": "pistol2"
                 }
             })
-                .should((response) => {
-                    cy.log(JSON.stringify(response.body))
-                    expect(response.status).to.equal(200)
-                    expect(response.body).to.have.keys('token')
-                    expect(response.body.token).to.not.be.null                
-                })                
+            .should((response) => {
+                cy.log(JSON.stringify(response.body))
+                expect(response.status).to.equal(200)
+                expect(response.body).to.have.keys('token')
+                expect(response.body.token).to.not.be.null                
+            })                
         });
-
 
         it('Register user with invalid data - no body', () => {
             cy.request({
@@ -30,11 +29,11 @@ describe('LOGIN USER API', () => {
                 failOnStatusCode: false,
                 body: {}
             })
-                .should((response) => {
-                    cy.log(JSON.stringify(response.body))
-                    expect(response.status).to.equal(400)
-                    expect(response.body).to.have.nested.include({'error': "Missing email or username"})   
-                })                
+            .should((response) => {
+                cy.log(JSON.stringify(response.body))
+                expect(response.status).to.equal(400)
+                expect(response.body).to.have.nested.include({'error': "Missing email or username"})   
+            })                
         });
 
         it('Register user with invalid data - no passowrd', () => {
@@ -46,11 +45,11 @@ describe('LOGIN USER API', () => {
                     "email": "eve.holt@reqres.in"
                 }
             })
-                .should((response) => {
-                    cy.log(JSON.stringify(response.body))
-                    expect(response.status).to.equal(400)
-                    expect(response.body).to.have.nested.include({'error': "Missing password"})   
-                })                
+            .should((response) => {
+                cy.log(JSON.stringify(response.body))
+                expect(response.status).to.equal(400)
+                expect(response.body).to.have.nested.include({'error': "Missing password"})   
+            })                
         });
 
 
@@ -61,11 +60,11 @@ describe('LOGIN USER API', () => {
                 failOnStatusCode: false,
                 body: { "password": "pistol2" }
             })
-                .should((response) => {
-                    cy.log(JSON.stringify(response.body))
-                    expect(response.status).to.equal(400)
-                    expect(response.body).to.have.nested.include({'error': "Missing email or username"})   
-                })                
+            .should((response) => {
+                cy.log(JSON.stringify(response.body))
+                expect(response.status).to.equal(400)
+                expect(response.body).to.have.nested.include({'error': "Missing email or username"})   
+            })                
         });
 
     })
